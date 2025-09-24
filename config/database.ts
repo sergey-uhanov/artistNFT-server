@@ -12,10 +12,7 @@ export default ({env}) => {
                 database: env('DATABASE_NAME', 'strapi'),
                 user: env('DATABASE_USERNAME', 'strapi'),
                 password: env('DATABASE_PASSWORD', 'strapi'),
-                ssl: {
-                    rejectUnauthorized: false,
-                    ca:env('DATABASE_CA', fs.readFileSync('./ssl/ca-certificate.crt').toString()) ,
-                },
+                ssl: false,
                 schema: env('DATABASE_SCHEMA', 'public'),
             },
             pool: {min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10)},
