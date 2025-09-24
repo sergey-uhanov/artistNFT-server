@@ -33,7 +33,7 @@ export default ({ env }) => {
         password: env('DATABASE_PASSWORD', 'strapi'),
         ssl: {
           rejectUnauthorized: env.bool('DATABASE_SSL_REJECT_UNAUTHORIZED', false),
-          ca: fs.readFileSync(path.join(__dirname, '..', '..', env('DATABASE_SSL_CA'))).toString(),
+
         },
         schema: env('DATABASE_SCHEMA', 'public'),
       },
