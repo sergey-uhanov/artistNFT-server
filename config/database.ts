@@ -13,7 +13,7 @@ export default ({env}) => {
                 user: env('DATABASE_USERNAME', 'strapi'),
                 password: env('DATABASE_PASSWORD', 'strapi'),
                 ssl: {
-                    rejectUnauthorized: true,  // Включает проверку cert (не ставьте false в prod!)
+                    rejectUnauthorized: false,
                     ca:env('DATABASE_CA', fs.readFileSync('./ssl/ca-certificate.crt').toString()) ,
                 },
                 schema: env('DATABASE_SCHEMA', 'public'),
