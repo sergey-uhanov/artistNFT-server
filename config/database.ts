@@ -1,3 +1,4 @@
+import fs from 'fs';
 export default ({env}) => {
     const client = env('DATABASE_CLIENT', 'sqlite');
 
@@ -11,7 +12,8 @@ export default ({env}) => {
                 user: env('DATABASE_USERNAME', 'strapi'),
                 password: env('DATABASE_PASSWORD', 'strapi'),
                 ssl: {
-                    rejectUnauthorized: false,
+                    rejectUnauthorized: true,  // Включает проверку cert (не ставьте false в prod!)
+                    ca: fs.readFileSync('./ssl/ca-certificate.crt').toString(),
                 },
                 schema: env('DATABASE_SCHEMA', 'public'),
             },
